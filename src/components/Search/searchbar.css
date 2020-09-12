@@ -23,6 +23,7 @@ form.search-form button {
   border: none;
 }
 
+form.search-form button:focus,
 form.search-form input:focus {
   outline: none;
 }

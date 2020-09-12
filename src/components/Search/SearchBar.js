@@ -3,15 +3,6 @@ import ClearIcon from "./../../assets/cross.svg";
 import SearchIcon from "./../../assets/magnifying-glass.svg";
 
 export default () => {
-  function showInput() {
-    var input = document.getElementById("searchBar-id");
-    if (input.className === "searchBar-input") {
-      input.className += " responsive";
-    } else {
-      input.className = "searchBar-input";
-    }
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -29,7 +20,7 @@ export default () => {
           className="searchBar-input"
           placeholder="Search"
         />
-        <button type="button" onClick={() => showInput()}>
+        <button type="button">
           <img src={SearchIcon} alt="search-icon" />
         </button>
       </form>

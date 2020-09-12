@@ -4,15 +4,33 @@ import SearchIcon from "./../../assets/magnifying-glass.svg";
 
 export default () => {
   const [isTyping, setIsTyping] = useState(false);
+  const [results, setResults] = useState([]);
+
+  function searchQuery(value) {
+    const url = `http://localhost:4000/api/ships/${value}`;
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.log(response.statusText);
+        }
+      })
+      .then((data) => {
+        setResults(data);
+        console.log(data);
+      });
+  }
 
   function handleSubmit(e) {
+    var value = document.getElementById("searchBar-id").value;
+    searchQuery(value);
     e.preventDefault();
   }
 
   function handleReset(e) {
     e.currentTarget.value = "";
     setIsTyping(false);
-    // e.preventDefault();
   }
 
   return (

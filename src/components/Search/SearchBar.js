@@ -35,11 +35,11 @@ export default () => {
       }, searchDelay);
     }
     return;
-}
+  }
 
   function handleBlur(e) {
     var value = e.currentTarget.value;
-    if (value.length == 0) {
+    if (value.length === 0) {
       setIsTyping(false);
     }
     return;

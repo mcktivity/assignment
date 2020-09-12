@@ -58,6 +58,14 @@ export default () => {
           </button>
         )}
       </form>
+      <ul className="results-list">
+        {results.length > 0 &&
+          results.map((data) => (
+            <li key={data.id} className="results-item">
+              {data.name}
+            </li>
+          ))}
+      </ul>
     </main>
   );
 };

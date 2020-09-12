@@ -12,7 +12,7 @@ form.search-form input {
   width: 100%;
   display: block;
   border: none;
-  background: none;
+  background: #ffffff;
   padding: 1.2em 1em;
   font-size: medium;
 }
@@ -30,4 +30,18 @@ form.search-form input:focus {
 
 form.search-form img {
   display: block;
+}
+
+/* Results list */
+
+ul.results-list {
+  list-style-type: none;
+}
+
+li.results-item {
+  margin-top: 1em;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 1.2em 1em;
+  font-size: medium;
 }

@@ -1,10 +1,11 @@
 import React from 'react';
+import SearchBar from './components/Search/SearchBar';
 
 function App() {
   return (
-    <p>
-      Edit <code>src/App.js</code> and save to reload.
-    </p>
+    <main>
+      <SearchBar />
+    </main>
   );
 }
 

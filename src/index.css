@@ -1,1 +1,13 @@
 @import "./components/Search/searchbar.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  background-color: #cccccc99;
+  justify-content: center;
+  padding-top: 5vh;
+}

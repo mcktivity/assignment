@@ -1,0 +1,32 @@
+form.search-form {
+  max-width: 295px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: 1px solid #333333;
+  background-color: #ffffff;
+  padding-right: 0.5em;
+}
+
+form.search-form input {
+  width: 100%;
+  display: block;
+  border: none;
+  background: none;
+  padding: 1.2em 1em;
+  font-size: medium;
+}
+
+form.search-form button {
+  padding: 0.5em;
+  background-color: transparent;
+  border: none;
+}
+
+form.search-form input:focus {
+  outline: none;
+}
+
+form.search-form img {
+  display: block;
+}

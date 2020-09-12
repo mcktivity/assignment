@@ -6,6 +6,9 @@ export default () => {
   const [isTyping, setIsTyping] = useState(false);
   const [results, setResults] = useState([]);
 
+  let timeoutSearch;
+  let searchDelay = 500;
+
   function searchQuery(value) {
     const url = `http://localhost:4000/api/ships/${value}`;
     fetch(url)
@@ -18,18 +21,42 @@ export default () => {
       })
       .then((data) => {
         setResults(data);
-        console.log(data);
+        // console.log(data);
       });
   }
 
+  function handleChange(e) {
+    var value = e.currentTarget.value;
+    clearTimeout(timeoutSearch);
+    if (value.length > 0) {
+      timeoutSearch = setTimeout(() => {
+        searchQuery(value);
+        setIsTyping(true);
+      }, searchDelay);
+    }
+    return;
+}
+
+  function handleBlur(e) {
+    var value = e.currentTarget.value;
+    if (value.length == 0) {
+      setIsTyping(false);
+    }
+    return;
+  }
+
   function handleSubmit(e) {
-    var value = document.getElementById("searchBar-id").value;
-    searchQuery(value);
+    /*  Exercise 3
+        var value = document.getElementById("searchBar-id").value;
+        searchQuery(value); 
+    */
+    // prevent refresh on Enter
     e.preventDefault();
   }
 
   function handleReset(e) {
     e.currentTarget.value = "";
+    setResults([]);
     setIsTyping(false);
   }
 
@@ -44,9 +71,12 @@ export default () => {
         <input
           type="text"
           id="searchBar-id"
+          name="searchBar"
           className="searchBar-input"
           placeholder="Search"
-          onChange={() => setIsTyping(true)}
+          autoFocus
+          onBlur={(e) => handleBlur(e)}
+          onChange={(e) => handleChange(e)}
         />
         {!isTyping ? (
           <button type="submit">
